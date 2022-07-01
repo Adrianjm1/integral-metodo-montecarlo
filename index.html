@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrales monte carlo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div>
+        
+        <div class="context">
+            <h1>INTEGRAL</h1>
+            <h2>Metodo Monte Carlo</h2>
+
+            <div class="d-flex" style="align-items: center; flex-direction: column">
+
+                <div class="row">
+
+                    <div class="input-group mb-3 " style="width: 33%;">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Limite a</span>
+                        </div>
+                        <input type="number" class="form-control" placeholder="a" aria-label="a" value=2
+                            aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3 " style="width: 33%;">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Limite b</span>
+                        </div>
+                        <input type="number" class="form-control" placeholder="b" aria-label="b" value=3
+                            aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3 " style="width: 33%;">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Cota superior</span>
+                        </div>
+                        <input type="number" class="form-control" placeholder="cota" aria-label="cota" value="30" 
+                            aria-describedby="basic-addon1">
+                    </div>
+
+ 
+                </div>
+
+
+
+
+
+                <div class="row">
+
+
+                    <div class="input-group mb-3 w-100">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Numero de simulaciones</span>
+                        </div>
+                        <input type="number" class="form-control" placeholder="Numero" aria-label="numero"
+                            value=1000 aria-describedby="basic-addon1">
+                    </div>
+                </div>
+
+
+
+            </div>
+
+         
+            <button class="cybr-btn w-25 mx-auto d-block">
+                Simular<span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">Cyber</span>
+              </button>
+
+        </div>
+
+        
+
+        <div class="area">
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+</div>
+</body>
+
+</html>
