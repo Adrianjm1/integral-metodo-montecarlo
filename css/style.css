@@ -1,5 +1,11 @@
 
 @import url('http://fonts.cdnfonts.com/css/cyber-princess');
+@font-face {
+    font-family: 'Cyber Princess';
+    src: url(CyberPrincess.ttf);
+
+}
+
 
 *{
     margin: 0px;
