@@ -8,102 +8,218 @@
     <title>Integrales monte carlo</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/table.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="js/index.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div>
-        
-        <div class="context">
-            <h1>INTEGRAL</h1>
-            <h2>Metodo Monte Carlo</h2>
-<br>
-            <div class="d-flex" style="align-items: center; flex-direction: column">
 
-                <div class="row">
+    <div class="context">
+        <h1>INTEGRAL</h1>
+        <h2>Metodo Monte Carlo</h2>
+        <br>
+        <div class="d-flex" style="align-items: center; flex-direction: column">
 
-                    <div class="input-group mb-3 " style="width: 33%;">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Limite a</span>
-                        </div>
-                        <input type="number" class="form-control" placeholder="a" aria-label="a" value=2
-                            aria-describedby="basic-addon1">
+            <div class="row">
+
+                <div class="input-group mb-3 " style="width: 33%;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Limite a</span>
                     </div>
-
-                    <div class="input-group mb-3 " style="width: 33%;">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Limite b</span>
-                        </div>
-                        <input type="number" class="form-control" placeholder="b" aria-label="b" value=3
-                            aria-describedby="basic-addon1">
-                    </div>
-
-                    <div class="input-group mb-3 " style="width: 33%;">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Cota superior</span>
-                        </div>
-                        <input type="number" class="form-control" placeholder="cota" aria-label="cota" value="30" 
-                            aria-describedby="basic-addon1">
-                    </div>
-
- 
+                    <input type="number" class="form-control" placeholder="a" aria-label="a" value=2 id="limitea"
+                        aria-describedby="basic-addon1">
                 </div>
 
-
-
-
-
-                <div class="row">
-
-
-                    <div class="input-group mb-3 w-100">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Numero de simulaciones</span>
-                        </div>
-                        <input type="number" class="form-control" placeholder="Numero" aria-label="numero"
-                            value=1000 aria-describedby="basic-addon1">
+                <div class="input-group mb-3 " style="width: 33%;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Limite b</span>
                     </div>
+                    <input type="number" class="form-control" placeholder="b" aria-label="b" value=3 id="limiteb"
+                        aria-describedby="basic-addon1">
                 </div>
 
+                <div class="input-group mb-3 " style="width: 33%;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Cota superior</span>
+                    </div>
+                    <input type="number" class="form-control" placeholder="cota" aria-label="cota" value="30" id="cotas"
+                        aria-describedby="basic-addon1">
+                </div>
 
 
             </div>
 
-         
-            <button class="cybr-btn w-25 mx-auto d-block">
-                Simular<span aria-hidden>_</span>
-                <span aria-hidden class="cybr-btn__glitch">Cyber</span>
-              </button>
+
+
+
+
+            <div class="row">
+
+
+                <div class="input-group mb-3 w-100">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Numero de simulaciones</span>
+                    </div>
+                    <input type="number" class="form-control" placeholder="Numero" id="numeroDeSimulaciones" aria-label="numero" value=1000
+                        aria-describedby="basic-addon1">
+                </div>
+            </div>
+
+
 
         </div>
 
 
+        <button onclick="simular()" class="cybr-btn w-25 mx-auto d-block">
+            Simular<span aria-hidden>_</span>
+            <span aria-hidden class="cybr-btn__glitch">Cyber</span>
+        </button> <br>
 
-        <div class="area">
-            <ul class="circles">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+
+<div id="todosLosResultados" style="display:none ;">
+
+
+    <div class="d-flex" style="align-items: center; flex-direction: column;">
+    
+        <div class="row " style="text-align: center;">
+            <div class="input-group mb-3 " style="width: auto;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text bg-dark text-white" id="basic-addon1">Integral</span>
+                </div>
+                <input type="number" style="font-weight: bold;" id="integral" class="form-control"  placeholder="a" aria-label="a" value=0
+                    aria-describedby="basic-addon1" disabled>
+            </div>
+    
+            <div class="input-group mb-3 " style="width: auto;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text bg-dark text-white" id="basic-addon1">Metodo Monte Carlo</span>
+                </div>
+                <input type="number" style="font-weight: bold;" id="monte" class="form-control"  placeholder="b" aria-label="b" value=0
+                    aria-describedby="basic-addon1" disabled>
+            </div>
+    
+            <div class="input-group mb-3 " style="width: auto;">
+                <div class="input-group-prepend" >
+                    <span class="input-group-text bg-dark text-white" id="basic-addon1">% de error total</span>
+                </div>
+                <input type="number" style="font-weight: bold;" id="error" class="form-control"  placeholder="b" aria-label="b" value=0
+                    aria-describedby="basic-addon1" disabled>
+            </div>
+    
         </div>
+    
+        <div class="row">
+    
+    
+            <div  class="input-group mb-3 " style="width: auto;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text bg-dark text-white" id="basic-addon1">Puntos de exito</span>
+                </div>
+                <input type="number" style="font-weight: bold;" id="exito" class="form-control"  placeholder="b" aria-label="b" value=0
+                    aria-describedby="basic-addon1" disabled>
+            </div>
+    
+            <div  class="input-group mb-3 " style="width: auto;">
+                <div class="input-group-prepend" >
+                    <span class="input-group-text bg-dark text-white" id="basic-addon1">Puntos de fracaso</span>
+                </div>
+                <input  type="number" style="font-weight: bold;" id="fracaso" class="form-control"  placeholder="b" aria-label="b" value=0
+                    aria-describedby="basic-addon1" disabled>
+            </div>
+        </div>
+
+
+        <br><br>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Ver tabla de resultados
+                </button>
+        <br>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#imgIntegral">
+                    Ver integral
+                </button>
+                </div>
+</div>
+
+
 
 
     </div>
 
 
-</div>
+
+
+
+    <div   class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+
+    </div>
+
+
+    </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div style="overflow:auto;height:450px;width: 100%;font-size: 13px; padding: 0; margin: 0;">
+
+                        <table class="table table-bordered mx-auto w-auto text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">n</th>
+                                    <th scope="col">y<span class="suby">i</span></th>
+                                    <th scope="col">f(x<span class="subx">i</span>)</th>
+                                    <th scope="col">Error (%)</th>
+                                    <th scope="col">Punto</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results">
+            
+            
+                            </tbody>
+                        </table>
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="imgIntegral" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Integral evaluada</h5>
+                </div>
+                <div class="modal-body">
+                  <img src="img/integral.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
 </body>
+<script src="js/index.js"></script>
 
 </html>
